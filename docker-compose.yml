@@ -1,0 +1,10 @@
+# Mailpit: bắt email gửi từ app (dev / test local), không gửi ra Internet.
+# Chạy từ thư mục exam-platform:  docker compose up -d mailpit
+# Xem thư: http://localhost:8025   |   SMTP app: host 127.0.0.1 port 1025 (không TLS, không auth)
+services:
+  mailpit:
+    image: axllent/mailpit:latest
+    ports:
+      - "8025:8025"
+      - "1025:1025"
+    restart: unless-stopped
